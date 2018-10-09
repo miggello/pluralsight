@@ -9,7 +9,7 @@ namespace Grades
     public class GradeBook
     {
         private List<float> grades;
-        private string _name;
+        private string _name = "Default";
 
         public string Name
         {
@@ -23,10 +23,10 @@ namespace Grades
                 {
                     if(_name != value)
                     {
-                        NameChangedEventArgs args = new NameChangedEventArgs();
-                        args.ExistingName = _name;
-                        args.NewName = value;
-                        NameChanged(this, args);
+                        //NameChangedEventArgs args = new NameChangedEventArgs();
+                        //args.ExistingName = _name;
+                        //args.NewName = value;
+                        //NameChanged(this, args);
                     }
 
                     _name = value;
@@ -60,6 +60,6 @@ namespace Grades
             grades.Add(grade);
         }
 
-        public event NameChangedDelegate NameChanged;
+        //public event NameChangedDelegate NameChanged;
     }
 }

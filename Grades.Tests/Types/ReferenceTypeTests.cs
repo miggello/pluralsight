@@ -62,8 +62,7 @@ namespace Grades.Tests.Types
         [TestMethod]
         public void ReferenceTypesPassedByValue()
         {
-            GradeBook book1 = new GradeBook();
-            GradeBook book2 = book1;
+            GradeBook book2 = new GradeBook();
 
             GiveBookAName(ref book2);
             Assert.AreEqual("A GradeBook", book2.Name);

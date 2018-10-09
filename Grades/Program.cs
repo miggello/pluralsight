@@ -13,24 +13,15 @@ namespace Grades
 
             GradeBook book = new GradeBook();
 
-            book.NameChanged += new NameChangedDelegate(OnNameChanged);
-
-            book.Name = "Scott's Grade Book";
-            book.Name = "Grade Book";
-
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);
 
             GradeStatistics stats = book.ComputeStatistics();
             WriteResult("Average", stats.AverageGrade);
-            WriteResult("Highest", (int)stats.HighestGrade);
+            WriteResult("Highest", stats.HighestGrade);
             WriteResult("Lowest", stats.LowestGrade);
-        }
-
-        static void WriteResult(string description, int result)
-        {
-            Console.WriteLine(description + ": " + result);
+            WriteResult("Grade", stats.LetterGrade);
         }
 
         static void WriteResult(string description, float result)
@@ -38,9 +29,9 @@ namespace Grades
             Console.WriteLine("{0}: {1:F2}",description, result);
         }
 
-        static void OnNameChanged(object sender, NameChangedEventArgs args)
+        static void WriteResult(string description, string result)
         {
-            Console.WriteLine($"Grade book changing name from {args.ExistingName} to {args.NewName}");
+            Console.WriteLine("{0}: {1}", description, result);
         }
 
     }
