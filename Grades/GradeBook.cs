@@ -9,7 +9,7 @@ namespace Grades
 {
     public class GradeBook
     {
-        private List<float> grades;
+        protected List<float> grades;
         private string _name = "Default";
 
         public string Name
@@ -54,9 +54,9 @@ namespace Grades
             grades = new List<float>();
         }
 
-        public GradeStatistics ComputeStatistics()
+        public virtual GradeStatistics ComputeStatistics()
         {
-            GradeStatistics stats = new GradeStatistics();
+            GradeStatistics stats = CreateGradeBook();
 
             float sum = 0;
             foreach (float grade in grades)
@@ -67,6 +67,11 @@ namespace Grades
             }
             stats.AverageGrade = sum / grades.Count;
             return stats;
+        }
+
+        private static GradeStatistics CreateGradeBook()
+        {
+            return new GradeStatistics();
         }
 
         public void AddGrade(float grade)

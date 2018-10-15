@@ -13,7 +13,7 @@ namespace Grades
         {
 
             GradeBook book = new GradeBook();
-            Console.WriteLine("Enter a name:");
+
             GetBookName(book);
             AddGrades(book);
             SaveGrades(book);
@@ -46,6 +46,7 @@ namespace Grades
 
         private static void GetBookName(GradeBook book)
         {
+            Console.WriteLine("Enter a name:");
             try
             {
                 book.Name = Console.ReadLine();
